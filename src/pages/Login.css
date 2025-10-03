@@ -1,0 +1,42 @@
+*{
+    background-color: black;
+   
+            
+   
+}
+
+
+
+
+.login-block{
+                float:left;
+                width:100%;
+                padding : 50px 0;
+                 background-image: url(./wyxina-tresse-psEIBanBUsA-unsplash.jpg);
+               background-position: center;
+               background-size: cover;
+               
+            }
+        
+            .container{
+                background:black;  width: 40%; height: 40%;
+                color:white;
+                border:2px solid;
+                box-shadow: 5px 5px 20px red;
+               
+            }
+            .container:hover{
+                transform: scale(1.1);
+            }
+            .login-sec{
+                padding: 50px 30px; position:relative;
+            }
+            .login-sec h2{
+                margin-bottom:30px; font-weight:800; font-size:30px; color: #0069c0;
+            }
+            .login-sec h2:after{
+                content:" "; width:100px; height:5px; background:#6ec6ff; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto
+            }
+            .btn-login{
+                background: #0069c0; color:#fff; font-weight:600;
+            }
