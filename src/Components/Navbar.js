@@ -1,24 +1,27 @@
 import React from 'react'
+import { Navbar, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { isAuthenticated } from '../services/Auth'
-import {Link} from 'react-router-dom'
 
-function Navbar(props) {
+function AppNavbar(props) {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-            <Link className="navbar-brand" to="/">Kaleesh</Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul className="navbar-nav mr-auto"  >
-                   {!isAuthenticated()? <li className="nav-item"> <Link className="nav-link" to="/register" >Register </Link></li>:null}
-                   {!isAuthenticated()? <li><Link className="nav-link" href="javascript:void(0);" to="/login" >Login</Link></li>:null}
-                  {isAuthenticated()?  <li className="nav-item"><Link className="nav-link"to="/dashboard" >Dashboard</Link></li>:null}
-                 {isAuthenticated()?   <li><a className="nav-link"  onClick={props.logOutUser}  >Logout</a></li>:null}
-                </ul>
-            </div>
-        </nav>
+    <Navbar bg="dark" variant="dark" expand="md">
+      <Navbar.Brand as={Link} to="/">Kaleesh</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          {!isAuthenticated() && <Nav.Link as={Link} to="/register">Register</Nav.Link>}
+          {!isAuthenticated() && <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+          {isAuthenticated() && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
+          {isAuthenticated() && (
+            <Nav.Link as="button" onClick={props.logOutUser} style={{ background: 'none', border: 'none' }}>
+              Logout
+            </Nav.Link>
+          )}
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
-export default Navbar
+export default AppNavbar
