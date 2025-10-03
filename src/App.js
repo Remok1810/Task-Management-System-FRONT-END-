@@ -1,35 +1,21 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import RegistorPage from "./pages/RegistorPage"
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 
-
-
 function App() {
   return (
-    <div>
-      <BrowserRouter>
-
+    <BrowserRouter>
       <Routes>
-        
-        <Route path="/register" element={ <RegistorPage /> } />
-        <Route path="/login" element={ <Login/> } />
-         <Route path="/dashboard" element={<Dashboard />} />
-        
-         
-        
+        {/* Redirect root to login */}
+        <Route path="/" element={<Navigate to="/login" />} />
 
-        
-
+        <Route path="/register" element={<RegistorPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-
-      </ BrowserRouter>
-
-
-      
-        
-    </div>
+    </BrowserRouter>
   )
 }
 
